@@ -7,7 +7,7 @@
 
 class spi_uvc_cfg extends uvm_object;
 	
-	uvm_active_passive_enum is_active = UVM_ACTIVE;
+	uvm_active_passive_enum is_active = UVM_PASSIVE;
 	bit     cpol      = 0;
 	bit     cpha      = 0;
 	longint sclk_freq = 25_000_000;

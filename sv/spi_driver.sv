@@ -8,6 +8,9 @@
 class spi_driver extends uvm_driver #(spi_seq_item);
 	
 	virtual spi_interface vif;
+	enum {DRIVE_ADDRESS,
+		  WRITE_DATA,
+		  READ_DATA} state;
 	
 	`uvm_component_utils(spi_driver);
 
@@ -19,8 +22,10 @@ class spi_driver extends uvm_driver #(spi_seq_item);
 	task run_phase(uvm_phase phase);
 	    phase.raise_objection(this);
 		
-		case (req.)
-			
+		case (req.transfer_mode)
+			READ : begin
+				write_byte();
+			end
 			default : 
 		endcase
 
